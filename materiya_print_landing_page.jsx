@@ -1,408 +1,743 @@
-"scripts": {
-  "build": "vite build"
-}
 import React from "react";
-import { motion } from "framer-motion";
-import {
-  ArrowRight,
-  BadgeCheck,
-  Brush,
-  Clock3,
-  FileText,
-  Instagram,
-  LayoutGrid,
-  Phone,
-  Printer,
-  Sparkles,
-  Star,
-  Zap,
-} from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-
-const services = [
-  {
-    icon: <Brush className="h-5 w-5" />,
-    title: "Графічний дизайн",
-    text: "Логотипи, візитки, флаєри, банери, меню, прайси та оформлення соцмереж.",
-  },
-  {
-    icon: <Printer className="h-5 w-5" />,
-    title: "Друк під ключ",
-    text: "Підготовка макета, друк, перевірка якості та готовий результат без зайвих клопотів.",
-  },
-  {
-    icon: <LayoutGrid className="h-5 w-5" />,
-    title: "Макети для бізнесу",
-    text: "Упаковка, постери, сертифікати, тейбл-тенти, зовнішня реклама та POS-матеріали.",
-  },
-  {
-    icon: <Sparkles className="h-5 w-5" />,
-    title: "Instagram-дизайн",
-    text: "Креативи для реклами, пости, сторіс, обкладинки та візуальна система сторінки.",
-  },
-];
-
-const benefits = [
-  "Сучасний стиль, який виглядає дорого",
-  "Швидка комунікація і зрозумілий процес",
-  "Макет + друк в одному місці",
-  "Акуратна подача для українського ринку",
-];
-
-const workflow = [
-  {
-    step: "01",
-    title: "Обговорення",
-    text: "Пишете, що потрібно: тип реклами, формат, стиль і терміни.",
-  },
-  {
-    step: "02",
-    title: "Дизайн",
-    text: "Готуємо концепцію та макет у фірмовому стилі Materiya Print.",
-  },
-  {
-    step: "03",
-    title: "Друк",
-    text: "Після затвердження запускаємо якісний друк без втрати деталей.",
-  },
-  {
-    step: "04",
-    title: "Результат",
-    text: "Ви отримуєте готовий матеріал, який можна одразу використовувати.",
-  },
-];
-
-const portfolio = [
-  {
-    title: "Візитки",
-    subtitle: "Мінімалістичні та преміальні",
-    badge: "Популярно в Україні",
-  },
-  {
-    title: "Флаєри",
-    subtitle: "Для акцій, відкриттів і подій",
-    badge: "Швидкий продаж",
-  },
-  {
-    title: "Instagram Ads",
-    subtitle: "Пости, сторіс, креативи",
-    badge: "Для реклами",
-  },
-];
 
 export default function MateriyaPrintLanding() {
+  const styles = {
+    page: {
+      minHeight: "100vh",
+      background:
+        "radial-gradient(circle at top left, rgba(255, 180, 0, 0.16), transparent 28%), radial-gradient(circle at top right, rgba(255, 79, 216, 0.12), transparent 26%), radial-gradient(circle at bottom right, rgba(49, 200, 255, 0.12), transparent 28%), #07070a",
+      color: "#ffffff",
+      fontFamily:
+        'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+    },
+    container: {
+      maxWidth: 1200,
+      margin: "0 auto",
+      padding: "24px 20px 56px",
+    },
+    header: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      gap: 16,
+      marginBottom: 42,
+      flexWrap: "wrap",
+    },
+    brand: {
+      display: "flex",
+      alignItems: "center",
+      gap: 12,
+    },
+    logo: {
+      width: 52,
+      height: 52,
+      borderRadius: 18,
+      display: "grid",
+      placeItems: "center",
+      background: "rgba(255,255,255,0.06)",
+      border: "1px solid rgba(255,255,255,0.12)",
+      boxShadow: "0 18px 40px rgba(0,0,0,0.35)",
+      fontWeight: 900,
+      letterSpacing: "0.08em",
+      color: "#ffcf4a",
+    },
+    brandText: {
+      lineHeight: 1.2,
+    },
+    smallCaps: {
+      fontSize: 12,
+      letterSpacing: "0.35em",
+      color: "rgba(255,255,255,0.55)",
+    },
+    subtitle: {
+      marginTop: 4,
+      fontSize: 13,
+      color: "rgba(255,255,255,0.42)",
+    },
+    heroGrid: {
+      display: "grid",
+      gridTemplateColumns: "1.1fr 0.9fr",
+      gap: 28,
+      alignItems: "center",
+    },
+    pill: {
+      display: "inline-flex",
+      alignItems: "center",
+      gap: 10,
+      padding: "10px 16px",
+      borderRadius: 999,
+      border: "1px solid rgba(255,255,255,0.12)",
+      background: "rgba(255,255,255,0.05)",
+      color: "rgba(255,255,255,0.82)",
+      fontSize: 14,
+      marginBottom: 18,
+    },
+    h1: {
+      margin: 0,
+      fontSize: "clamp(44px, 8vw, 80px)",
+      lineHeight: 0.95,
+      fontWeight: 900,
+      letterSpacing: "-0.04em",
+    },
+    gradientText: {
+      display: "block",
+      background: "linear-gradient(90deg, #ffb000, #ff4fd8, #31c8ff)",
+      WebkitBackgroundClip: "text",
+      backgroundClip: "text",
+      color: "transparent",
+    },
+    heroText: {
+      marginTop: 22,
+      maxWidth: 720,
+      fontSize: 18,
+      lineHeight: 1.8,
+      color: "rgba(255,255,255,0.72)",
+    },
+    buttons: {
+      display: "flex",
+      gap: 14,
+      flexWrap: "wrap",
+      marginTop: 28,
+    },
+    primaryButton: {
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center",
+      gap: 10,
+      padding: "14px 22px",
+      borderRadius: 999,
+      border: "none",
+      background: "linear-gradient(90deg, #ffb000, #ff4fd8, #31c8ff)",
+      color: "#0b0b0f",
+      fontWeight: 700,
+      textDecoration: "none",
+    },
+    secondaryButton: {
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center",
+      padding: "14px 22px",
+      borderRadius: 999,
+      border: "1px solid rgba(255,255,255,0.14)",
+      background: "rgba(255,255,255,0.05)",
+      color: "#fff",
+      textDecoration: "none",
+      fontWeight: 600,
+    },
+    heroStats: {
+      marginTop: 28,
+      display: "grid",
+      gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+      gap: 12,
+    },
+    statCard: {
+      borderRadius: 22,
+      border: "1px solid rgba(255,255,255,0.1)",
+      background: "rgba(255,255,255,0.05)",
+      padding: 16,
+    },
+    statTitle: {
+      fontSize: 18,
+      fontWeight: 800,
+      marginBottom: 6,
+    },
+    statText: {
+      fontSize: 13,
+      color: "rgba(255,255,255,0.6)",
+      lineHeight: 1.6,
+    },
+    mockupCard: {
+      borderRadius: 34,
+      border: "1px solid rgba(255,255,255,0.1)",
+      background: "rgba(255,255,255,0.05)",
+      boxShadow: "0 30px 80px rgba(0,0,0,0.4)",
+      padding: 18,
+      backdropFilter: "blur(10px)",
+    },
+    mockupInner: {
+      borderRadius: 26,
+      border: "1px solid rgba(255,255,255,0.08)",
+      background: "#0c0c11",
+      padding: 18,
+    },
+    mockupHeader: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      gap: 10,
+      marginBottom: 18,
+      flexWrap: "wrap",
+    },
+    tag: {
+      fontSize: 12,
+      letterSpacing: "0.28em",
+      color: "rgba(255,255,255,0.45)",
+      textTransform: "uppercase",
+    },
+    badge: {
+      fontSize: 12,
+      padding: "8px 12px",
+      borderRadius: 999,
+      border: "1px solid rgba(255,255,255,0.12)",
+      background: "rgba(255,255,255,0.05)",
+      color: "rgba(255,255,255,0.72)",
+    },
+    mockupMain: {
+      display: "grid",
+      gridTemplateColumns: "1.2fr 0.8fr",
+      gap: 16,
+    },
+    mainPanel: {
+      minHeight: 220,
+      borderRadius: 26,
+      padding: 22,
+      background:
+        "linear-gradient(135deg, rgba(255,176,0,0.22), rgba(255,79,216,0.18), rgba(49,200,255,0.18))",
+      border: "1px solid rgba(255,255,255,0.08)",
+    },
+    mainPanelTitle: {
+      fontSize: 14,
+      color: "rgba(255,255,255,0.78)",
+      marginBottom: 10,
+    },
+    mainPanelText: {
+      fontSize: 34,
+      lineHeight: 1.08,
+      fontWeight: 900,
+      maxWidth: 240,
+      margin: 0,
+    },
+    mainPanelNote: {
+      marginTop: 16,
+      fontSize: 14,
+      color: "rgba(255,255,255,0.82)",
+      display: "flex",
+      alignItems: "center",
+      gap: 8,
+    },
+    sideStack: {
+      display: "grid",
+      gap: 12,
+    },
+    miniCard: {
+      borderRadius: 22,
+      border: "1px solid rgba(255,255,255,0.1)",
+      background: "rgba(255,255,255,0.05)",
+      padding: 16,
+      color: "rgba(255,255,255,0.8)",
+      minHeight: 60,
+      display: "flex",
+      alignItems: "center",
+    },
+    metricsRow: {
+      marginTop: 16,
+      display: "grid",
+      gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+      gap: 12,
+    },
+    metricBox: {
+      borderRadius: 22,
+      border: "1px solid rgba(255,255,255,0.1)",
+      background: "rgba(255,255,255,0.05)",
+      padding: 16,
+      textAlign: "center",
+    },
+    metricNum: {
+      fontSize: 26,
+      fontWeight: 900,
+      marginBottom: 4,
+    },
+    metricLabel: {
+      fontSize: 11,
+      letterSpacing: "0.18em",
+      textTransform: "uppercase",
+      color: "rgba(255,255,255,0.5)",
+    },
+    section: {
+      marginTop: 68,
+    },
+    sectionHead: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "end",
+      gap: 12,
+      marginBottom: 22,
+      flexWrap: "wrap",
+    },
+    sectionTitle: {
+      margin: 0,
+      fontSize: "clamp(28px, 4vw, 42px)",
+      fontWeight: 900,
+      letterSpacing: "-0.03em",
+    },
+    sectionHint: {
+      color: "rgba(255,255,255,0.55)",
+      fontSize: 14,
+      maxWidth: 380,
+      lineHeight: 1.7,
+    },
+    serviceGrid: {
+      display: "grid",
+      gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
+      gap: 14,
+    },
+    serviceCard: {
+      borderRadius: 24,
+      border: "1px solid rgba(255,255,255,0.1)",
+      background: "rgba(255,255,255,0.05)",
+      padding: 18,
+      minHeight: 180,
+    },
+    serviceIcon: {
+      width: 44,
+      height: 44,
+      borderRadius: 16,
+      display: "grid",
+      placeItems: "center",
+      background: "linear-gradient(135deg, rgba(255,176,0,0.18), rgba(255,79,216,0.12), rgba(49,200,255,0.12))",
+      color: "#ffcf4a",
+      marginBottom: 14,
+      fontSize: 20,
+    },
+    serviceTitle: {
+      fontSize: 20,
+      fontWeight: 800,
+      marginBottom: 8,
+    },
+    serviceText: {
+      fontSize: 14,
+      lineHeight: 1.8,
+      color: "rgba(255,255,255,0.64)",
+    },
+    infoGrid: {
+      display: "grid",
+      gridTemplateColumns: "0.95fr 1.05fr",
+      gap: 16,
+      alignItems: "start",
+    },
+    benefitList: {
+      display: "grid",
+      gap: 12,
+      marginTop: 16,
+    },
+    benefitItem: {
+      display: "flex",
+      alignItems: "flex-start",
+      gap: 12,
+      padding: 16,
+      borderRadius: 22,
+      border: "1px solid rgba(255,255,255,0.1)",
+      background: "rgba(255,255,255,0.05)",
+    },
+    benefitDot: {
+      width: 22,
+      height: 22,
+      borderRadius: 999,
+      background: "#ffcf4a",
+      color: "#111",
+      display: "grid",
+      placeItems: "center",
+      flexShrink: 0,
+      fontWeight: 900,
+      fontSize: 13,
+      marginTop: 2,
+    },
+    benefitText: {
+      lineHeight: 1.7,
+      color: "rgba(255,255,255,0.78)",
+    },
+    portfolioGrid: {
+      display: "grid",
+      gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+      gap: 14,
+    },
+    portfolioCard: {
+      minHeight: 360,
+      borderRadius: 26,
+      border: "1px solid rgba(255,255,255,0.1)",
+      background:
+        "radial-gradient(circle at top, rgba(255,176,0,0.12), transparent 32%), linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02))",
+      padding: 18,
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "space-between",
+    },
+    portfolioTop: {
+      display: "flex",
+      justifyContent: "space-between",
+      gap: 10,
+      alignItems: "center",
+      color: "rgba(255,255,255,0.52)",
+      fontSize: 12,
+      letterSpacing: "0.2em",
+      textTransform: "uppercase",
+    },
+    portfolioPreview: {
+      height: 160,
+      borderRadius: 22,
+      background:
+        "linear-gradient(135deg, rgba(255,176,0,0.2), rgba(255,79,216,0.16), rgba(49,200,255,0.16))",
+      border: "1px solid rgba(255,255,255,0.08)",
+      marginTop: 20,
+    },
+    processGrid: {
+      display: "grid",
+      gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
+      gap: 14,
+    },
+    processCard: {
+      borderRadius: 24,
+      border: "1px solid rgba(255,255,255,0.1)",
+      background: "rgba(255,255,255,0.05)",
+      padding: 18,
+    },
+    step: {
+      fontSize: 12,
+      letterSpacing: "0.35em",
+      color: "rgba(255,255,255,0.4)",
+      marginBottom: 12,
+    },
+    processTitle: {
+      fontSize: 20,
+      fontWeight: 800,
+      marginBottom: 8,
+    },
+    processText: {
+      fontSize: 14,
+      lineHeight: 1.8,
+      color: "rgba(255,255,255,0.64)",
+    },
+    contactGrid: {
+      display: "grid",
+      gridTemplateColumns: "1.05fr 0.95fr",
+      gap: 16,
+      alignItems: "center",
+    },
+    contactCard: {
+      borderRadius: 28,
+      border: "1px solid rgba(255,255,255,0.1)",
+      background: "rgba(255,255,255,0.05)",
+      padding: 22,
+    },
+    contactList: {
+      display: "grid",
+      gap: 12,
+      marginTop: 18,
+    },
+    contactItem: {
+      display: "flex",
+      alignItems: "center",
+      gap: 10,
+      color: "rgba(255,255,255,0.78)",
+      fontSize: 14,
+    },
+    footer: {
+      marginTop: 52,
+      paddingTop: 20,
+      borderTop: "1px solid rgba(255,255,255,0.1)",
+      textAlign: "center",
+      color: "rgba(255,255,255,0.42)",
+      fontSize: 13,
+    },
+    accent: {
+      color: "#ffcf4a",
+      fontWeight: 700,
+    },
+    responsive: {
+      "@media (max-width: 960px)": {
+        heroGrid: { gridTemplateColumns: "1fr" },
+        infoGrid: { gridTemplateColumns: "1fr" },
+        contactGrid: { gridTemplateColumns: "1fr" },
+        serviceGrid: { gridTemplateColumns: "repeat(2, minmax(0, 1fr))" },
+        portfolioGrid: { gridTemplateColumns: "1fr" },
+        processGrid: { gridTemplateColumns: "repeat(2, minmax(0, 1fr))" },
+      },
+      "@media (max-width: 640px)": {
+        container: { padding: "18px 14px 42px" },
+        heroStats: { gridTemplateColumns: "1fr" },
+        metricsRow: { gridTemplateColumns: "1fr" },
+        serviceGrid: { gridTemplateColumns: "1fr" },
+        processGrid: { gridTemplateColumns: "1fr" },
+        mockupMain: { gridTemplateColumns: "1fr" },
+        header: { marginBottom: 28 },
+      },
+    },
+  };
+
   return (
-    <div className="min-h-screen bg-[#07070a] text-white selection:bg-fuchsia-500/30 selection:text-white">
-      <div className="relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,196,0,0.18),transparent_28%),radial-gradient(circle_at_top_right,rgba(251,0,255,0.14),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(0,191,255,0.12),transparent_30%)]" />
-        <header className="relative z-10 mx-auto flex max-w-7xl items-center justify-between px-5 py-5 md:px-8">
-          <div className="flex items-center gap-3">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/5 shadow-lg shadow-black/30 backdrop-blur">
-              <span className="bg-gradient-to-r from-[#ffb000] via-[#ff4fd8] to-[#31c8ff] bg-clip-text text-lg font-black text-transparent">
-                MP
-              </span>
-            </div>
-            <div>
-              <div className="text-sm tracking-[0.35em] text-white/60">MATERIYA PRINT</div>
-              <div className="text-xs text-white/40">Дизайн • Друк • Реклама</div>
+    <div style={styles.page}>
+      <div style={styles.container}>
+        <header style={styles.header}>
+          <div style={styles.brand}>
+            <div style={styles.logo}>MP</div>
+            <div style={styles.brandText}>
+              <div style={styles.smallCaps}>MATERIYA PRINT</div>
+              <div style={styles.subtitle}>Дизайн • Друк • Реклама</div>
             </div>
           </div>
-          <a
-            href="#contact"
-            className="hidden rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-white/80 backdrop-blur transition hover:bg-white/10 md:inline-flex"
-          >
+          <a href="#contact" style={styles.secondaryButton}>
             Зв'язатися
           </a>
         </header>
 
-        <main className="relative z-10 mx-auto max-w-7xl px-5 pb-16 pt-8 md:px-8 md:pb-24 md:pt-12">
-          <section className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-            >
-              <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/80 backdrop-blur">
-                <Star className="h-4 w-4 text-[#ffcf4a]" />
-                Стильна подача для бізнесу в Україні
-              </div>
-              <h1 className="max-w-3xl text-5xl font-black leading-[0.95] tracking-tight md:text-7xl">
-                <span className="block text-white">ДИЗАЙН,</span>
-                <span className="block bg-gradient-to-r from-[#ffb000] via-[#ff4fd8] to-[#31c8ff] bg-clip-text text-transparent">
-                  ЯКИЙ ПРАЦЮЄ
-                </span>
-                <span className="block text-white/90">НА ВАШ БІЗНЕС</span>
-              </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-white/70 md:text-xl">
-                Materiya Print створює рекламні макети, фірмовий стиль і друковану
-                продукцію, яка виглядає сучасно, зрозуміло та переконливо.
-              </p>
+        <main style={styles.heroGrid}>
+          <section>
+            <div style={styles.pill}>✨ Стильна подача для бізнесу в Україні</div>
+            <h1 style={styles.h1}>
+              <span>ДИЗАЙН,</span>
+              <span style={styles.gradientText}>ЯКИЙ ПРАЦЮЄ</span>
+              <span>НА ВАШ БІЗНЕС</span>
+            </h1>
+            <p style={styles.heroText}>
+              Materiya Print створює рекламні макети, фірмовий стиль і друковану
+              продукцію, яка виглядає сучасно, зрозуміло та переконливо.
+            </p>
 
-              <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-                <Button className="group h-14 rounded-full bg-gradient-to-r from-[#ffb000] via-[#ff4fd8] to-[#31c8ff] px-6 text-base font-semibold text-black hover:opacity-95">
-                  Замовити дизайн
-                  <ArrowRight className="ml-2 h-4 w-4 transition group-hover:translate-x-1" />
-                </Button>
-                <Button
-                  variant="outline"
-                  className="h-14 rounded-full border-white/15 bg-white/5 px-6 text-base text-white/90 hover:bg-white/10"
-                >
-                  Дивитись послуги
-                </Button>
-              </div>
+            <div style={styles.buttons}>
+              <a href="#contact" style={styles.primaryButton}>
+                Замовити дизайн →
+              </a>
+              <a href="#services" style={styles.secondaryButton}>
+                Дивитись послуги
+              </a>
+            </div>
 
-              <div className="mt-8 grid gap-3 sm:grid-cols-3">
-                {[
-                  ["Швидко", "Підготовка без затримок"],
-                  ["Якісно", "Преміальна подача"],
-                  ["Під ключ", "Дизайн + друк"],
-                ].map(([title, text]) => (
-                  <div
-                    key={title}
-                    className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur"
-                  >
-                    <div className="text-lg font-semibold">{title}</div>
-                    <div className="mt-1 text-sm text-white/60">{text}</div>
+            <div style={styles.heroStats}>
+              <div style={styles.statCard}>
+                <div style={styles.statTitle}>Швидко</div>
+                <div style={styles.statText}>Підготовка без затримок</div>
+              </div>
+              <div style={styles.statCard}>
+                <div style={styles.statTitle}>Якісно</div>
+                <div style={styles.statText}>Преміальна подача</div>
+              </div>
+              <div style={styles.statCard}>
+                <div style={styles.statTitle}>Під ключ</div>
+                <div style={styles.statText}>Дизайн + друк</div>
+              </div>
+            </div>
+          </section>
+
+          <section style={styles.mockupCard} aria-label="Preview mockup">
+            <div style={styles.mockupInner}>
+              <div style={styles.mockupHeader}>
+                <div>
+                  <div style={styles.tag}>Instagram preview</div>
+                  <div style={{ fontSize: 28, fontWeight: 900, marginTop: 8 }}>
+                    Materiya Print
                   </div>
-                ))}
+                </div>
+                <div style={styles.badge}>Популярний стиль</div>
               </div>
-            </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, scale: 0.96 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.05 }}
-              className="relative"
-            >
-              <div className="absolute -left-8 top-10 h-40 w-40 rounded-full bg-[#ff4fd8]/20 blur-3xl" />
-              <div className="absolute -right-6 bottom-12 h-48 w-48 rounded-full bg-[#31c8ff]/20 blur-3xl" />
-              <Card className="relative overflow-hidden rounded-[2rem] border-white/10 bg-white/5 shadow-2xl shadow-black/40 backdrop-blur-xl">
-                <CardContent className="p-5 md:p-6">
-                  <div className="rounded-[1.6rem] border border-white/10 bg-[#0c0c11] p-4 md:p-5">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <div className="text-xs uppercase tracking-[0.4em] text-white/40">
-                          Instagram preview
-                        </div>
-                        <div className="mt-2 text-2xl font-black">
-                          Materiya Print
-                        </div>
-                      </div>
-                      <div className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70">
-                        Популярний стиль
-                      </div>
-                    </div>
+              <div style={styles.mockupMain}>
+                <div style={styles.mainPanel}>
+                  <div style={styles.mainPanelTitle}>Дизайн + друк</div>
+                  <h2 style={styles.mainPanelText}>Візитки, флаєри, банери</h2>
+                  <div style={styles.mainPanelNote}>✔ Готово до запуску в рекламу</div>
+                </div>
+                <div style={styles.sideStack}>
+                  <div style={styles.miniCard}>Для кав'ярень</div>
+                  <div style={styles.miniCard}>Для салонів</div>
+                  <div style={styles.miniCard}>Для магазинів</div>
+                </div>
+              </div>
 
-                    <div className="mt-5 grid gap-4 md:grid-cols-2">
-                      <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[linear-gradient(160deg,rgba(255,176,0,0.18),rgba(255,79,216,0.15),rgba(49,200,255,0.16))] p-5">
-                        <div className="text-sm text-white/75">Дизайн + друк</div>
-                        <div className="mt-3 max-w-40 text-3xl font-black leading-tight">
-                          Візитки, флаєри, банери
-                        </div>
-                        <div className="mt-4 flex items-center gap-2 text-sm text-white/80">
-                          <BadgeCheck className="h-4 w-4 text-[#ffcf4a]" />
-                          Готово до запуску в рекламу
-                        </div>
-                      </div>
-                      <div className="grid gap-3">
-                        {[
-                          "Для кав'ярень",
-                          "Для салонів",
-                          "Для магазинів",
-                        ].map((item) => (
-                          <div
-                            key={item}
-                            className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-sm text-white/75"
-                          >
-                            {item}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="mt-5 grid gap-3 sm:grid-cols-3">
-                      {[
-                        ["25+", "типів макетів"],
-                        ["1", "єдиний стиль"],
-                        ["100%", "подача під бренд"],
-                      ].map(([a, b]) => (
-                        <div key={a} className="rounded-2xl border border-white/10 bg-white/5 p-4 text-center">
-                          <div className="text-2xl font-black">{a}</div>
-                          <div className="text-xs uppercase tracking-[0.2em] text-white/45">{b}</div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
+              <div style={styles.metricsRow}>
+                <div style={styles.metricBox}>
+                  <div style={styles.metricNum}>25+</div>
+                  <div style={styles.metricLabel}>типів макетів</div>
+                </div>
+                <div style={styles.metricBox}>
+                  <div style={styles.metricNum}>1</div>
+                  <div style={styles.metricLabel}>єдиний стиль</div>
+                </div>
+                <div style={styles.metricBox}>
+                  <div style={styles.metricNum}>100%</div>
+                  <div style={styles.metricLabel}>подача під бренд</div>
+                </div>
+              </div>
+            </div>
           </section>
         </main>
-      </div>
 
-      <section className="mx-auto max-w-7xl px-5 py-16 md:px-8">
-        <div className="mb-8 flex items-end justify-between gap-4">
-          <div>
-            <div className="text-sm uppercase tracking-[0.35em] text-white/40">Послуги</div>
-            <h2 className="mt-2 text-3xl font-black md:text-4xl">Що ми робимо</h2>
-          </div>
-          <div className="hidden text-sm text-white/55 md:block">
-            Дизайн, який виглядає актуально для української аудиторії
-          </div>
-        </div>
-
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-          {services.map((service, i) => (
-            <Card key={i} className="rounded-[1.5rem] border-white/10 bg-white/5 backdrop-blur transition hover:-translate-y-1 hover:bg-white/10">
-              <CardContent className="p-5">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[#ffb000]/20 via-[#ff4fd8]/15 to-[#31c8ff]/20 text-[#ffcf4a]">
-                  {service.icon}
-                </div>
-                <div className="mt-4 text-xl font-bold">{service.title}</div>
-                <p className="mt-2 text-sm leading-7 text-white/65">{service.text}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
-
-      <section className="bg-white/[0.03] py-16">
-        <div className="mx-auto max-w-7xl px-5 md:px-8">
-          <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+        <section id="services" style={styles.section}>
+          <div style={styles.sectionHead}>
             <div>
-              <div className="text-sm uppercase tracking-[0.35em] text-white/40">Переваги</div>
-              <h2 className="mt-2 text-3xl font-black md:text-4xl">Чому це працює</h2>
-              <p className="mt-4 max-w-xl text-white/65 leading-8">
-                Для малого бізнесу в Україні важливі не лише красиві картинки, а
-                зрозуміла комунікація, впізнаваність і швидкий шлях до готового
-                матеріалу.
+              <div style={styles.smallCaps}>ПОСЛУГИ</div>
+              <h2 style={styles.sectionTitle}>Що ми робимо</h2>
+            </div>
+            <div style={styles.sectionHint}>
+              Дизайн, який виглядає актуально для української аудиторії.
+            </div>
+          </div>
+
+          <div style={styles.serviceGrid}>
+            <ServiceCard
+              icon="✎"
+              title="Графічний дизайн"
+              text="Логотипи, візитки, флаєри, банери, меню, прайси та оформлення соцмереж."
+              styles={styles}
+            />
+            <ServiceCard
+              icon="🖨"
+              title="Друк під ключ"
+              text="Підготовка макета, друк, перевірка якості та готовий результат без зайвих клопотів."
+              styles={styles}
+            />
+            <ServiceCard
+              icon="▦"
+              title="Макети для бізнесу"
+              text="Упаковка, постери, сертифікати, тейбл-тенти, зовнішня реклама та POS-матеріали."
+              styles={styles}
+            />
+            <ServiceCard
+              icon="◎"
+              title="Instagram-дизайн"
+              text="Креативи для реклами, пости, сторіс, обкладинки та візуальна система сторінки."
+              styles={styles}
+            />
+          </div>
+        </section>
+
+        <section style={styles.section}>
+          <div style={styles.infoGrid}>
+            <div>
+              <div style={styles.smallCaps}>ПЕРЕВАГИ</div>
+              <h2 style={styles.sectionTitle}>Чому це працює</h2>
+              <p style={styles.sectionHint}>
+                Для малого бізнесу важливі не лише красиві картинки, а зрозуміла
+                комунікація, впізнаваність і швидкий шлях до готового матеріалу.
               </p>
 
-              <div className="mt-6 space-y-3">
-                {benefits.map((item) => (
-                  <div key={item} className="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/5 p-4">
-                    <Zap className="mt-0.5 h-4 w-4 text-[#ffcf4a]" />
-                    <div className="text-white/80">{item}</div>
+              <div style={styles.benefitList}>
+                {[
+                  "Сучасний стиль, який виглядає дорого",
+                  "Швидка комунікація і зрозумілий процес",
+                  "Макет + друк в одному місці",
+                  "Акуратна подача для українського ринку",
+                ].map((item) => (
+                  <div key={item} style={styles.benefitItem}>
+                    <div style={styles.benefitDot}>✓</div>
+                    <div style={styles.benefitText}>{item}</div>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="grid gap-4 md:grid-cols-3">
-              {portfolio.map((item, idx) => (
-                <Card key={idx} className="overflow-hidden rounded-[1.5rem] border-white/10 bg-[#0d0d12]">
-                  <CardContent className="p-0">
-                    <div className="flex min-h-[360px] flex-col justify-between bg-[radial-gradient(circle_at_top,rgba(255,176,0,0.12),transparent_30%),linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.01))] p-5">
-                      <div className="flex items-center justify-between text-xs uppercase tracking-[0.22em] text-white/45">
-                        <span>{item.badge}</span>
-                        <LayoutGrid className="h-4 w-4 text-[#ffcf4a]" />
-                      </div>
-                      <div>
-                        <div className="text-2xl font-black">{item.title}</div>
-                        <p className="mt-2 text-sm leading-7 text-white/65">{item.subtitle}</p>
-                      </div>
-                      <div className="rounded-3xl border border-white/10 bg-white/5 p-4">
-                        <div className="h-36 rounded-2xl bg-[linear-gradient(135deg,rgba(255,176,0,0.18),rgba(255,79,216,0.16),rgba(49,200,255,0.14))]" />
-                      </div>
+            <div style={styles.portfolioGrid}>
+              {[
+                {
+                  title: "Візитки",
+                  subtitle: "Мінімалістичні та преміальні",
+                  badge: "Популярно в Україні",
+                },
+                {
+                  title: "Флаєри",
+                  subtitle: "Для акцій, відкриттів і подій",
+                  badge: "Швидкий продаж",
+                },
+                {
+                  title: "Instagram Ads",
+                  subtitle: "Пости, сторіс, креативи",
+                  badge: "Для реклами",
+                },
+              ].map((item) => (
+                <div key={item.title} style={styles.portfolioCard}>
+                  <div>
+                    <div style={styles.portfolioTop}>
+                      <span>{item.badge}</span>
+                      <span>◐</span>
                     </div>
-                  </CardContent>
-                </Card>
+                    <div style={{ marginTop: 18, fontSize: 28, fontWeight: 900 }}>
+                      {item.title}
+                    </div>
+                    <div style={{ marginTop: 10, color: "rgba(255,255,255,0.65)", lineHeight: 1.7 }}>
+                      {item.subtitle}
+                    </div>
+                  </div>
+                  <div style={styles.portfolioPreview} />
+                </div>
               ))}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="mx-auto max-w-7xl px-5 py-16 md:px-8">
-        <div className="mb-8">
-          <div className="text-sm uppercase tracking-[0.35em] text-white/40">Як ми працюємо</div>
-          <h2 className="mt-2 text-3xl font-black md:text-4xl">Простий процес без хаосу</h2>
-        </div>
-
-        <div className="grid gap-4 lg:grid-cols-4">
-          {workflow.map((item) => (
-            <Card key={item.step} className="rounded-[1.5rem] border-white/10 bg-white/5 backdrop-blur">
-              <CardContent className="p-5">
-                <div className="text-sm font-semibold tracking-[0.35em] text-white/35">{item.step}</div>
-                <div className="mt-3 text-xl font-bold">{item.title}</div>
-                <p className="mt-2 text-sm leading-7 text-white/65">{item.text}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
-
-      <section id="contact" className="border-t border-white/10 bg-white/[0.03]">
-        <div className="mx-auto max-w-7xl px-5 py-16 md:px-8">
-          <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+        <section style={styles.section}>
+          <div style={styles.sectionHead}>
             <div>
-              <div className="text-sm uppercase tracking-[0.35em] text-white/40">Контакти</div>
-              <h2 className="mt-2 text-3xl font-black md:text-4xl">Готові зробити ваш бренд помітним</h2>
-              <p className="mt-4 max-w-2xl text-white/65 leading-8">
+              <div style={styles.smallCaps}>ПРОЦЕС</div>
+              <h2 style={styles.sectionTitle}>Простий процес без хаосу</h2>
+            </div>
+          </div>
+
+          <div style={styles.processGrid}>
+            {[
+              ["01", "Обговорення", "Пишете, що потрібно: тип реклами, формат, стиль і терміни."],
+              ["02", "Дизайн", "Готуємо концепцію та макет у фірмовому стилі Materiya Print."],
+              ["03", "Друк", "Після затвердження запускаємо якісний друк без втрати деталей."],
+              ["04", "Результат", "Ви отримуєте готовий матеріал, який можна одразу використовувати."],
+            ].map(([step, title, text]) => (
+              <div key={step} style={styles.processCard}>
+                <div style={styles.step}>{step}</div>
+                <div style={styles.processTitle}>{title}</div>
+                <div style={styles.processText}>{text}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section id="contact" style={styles.section}>
+          <div style={styles.contactGrid}>
+            <div>
+              <div style={styles.smallCaps}>КОНТАКТИ</div>
+              <h2 style={styles.sectionTitle}>Готові зробити ваш бренд помітним</h2>
+              <p style={styles.sectionHint}>
                 Напишіть у дірект або залиште заявку. Підберемо стиль, запропонуємо
                 рішення та підготуємо дизайн під друк.
               </p>
+            </div>
 
-              <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-                <a
-                  href="https://instagram.com"
-                  className="inline-flex h-14 items-center justify-center gap-2 rounded-full bg-white px-6 text-sm font-semibold text-black transition hover:opacity-95"
-                >
-                  <Instagram className="h-4 w-4" />
-                  Instagram / Direct
-                </a>
-                <a
-                  href="tel:+380000000000"
-                  className="inline-flex h-14 items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 text-sm font-semibold text-white transition hover:bg-white/10"
-                >
-                  <Phone className="h-4 w-4" />
-                  +38 (000) 000 00 00
+            <div style={styles.contactCard}>
+              <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                <div style={styles.logo}>MP</div>
+                <div>
+                  <div style={{ fontSize: 18, fontWeight: 800 }}>Materiya Print</div>
+                  <div style={{ color: "rgba(255,255,255,0.55)", fontSize: 14 }}>
+                    Дизайн • Друк • Реклама
+                  </div>
+                </div>
+              </div>
+
+              <div style={styles.contactList}>
+                <div style={styles.contactItem}>⏱ Швидка відповідь у робочий час</div>
+                <div style={styles.contactItem}>✔ Макет і друк під ключ</div>
+                <div style={styles.contactItem}>✨ Сучасний стиль для Instagram та бізнесу</div>
+              </div>
+
+              <div style={{ marginTop: 18 }}>
+                <a href="https://instagram.com" style={styles.primaryButton}>
+                  Замовити консультацію →
                 </a>
               </div>
             </div>
-
-            <Card className="rounded-[1.8rem] border-white/10 bg-[#0c0c11] shadow-2xl shadow-black/30">
-              <CardContent className="p-6">
-                <div className="rounded-[1.4rem] border border-white/10 bg-gradient-to-br from-[#ffb000]/15 via-[#ff4fd8]/12 to-[#31c8ff]/12 p-6">
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-black/40">
-                      <FileText className="h-5 w-5 text-[#ffcf4a]" />
-                    </div>
-                    <div>
-                      <div className="text-lg font-bold">Materiya Print</div>
-                      <div className="text-sm text-white/60">Дизайн • Друк • Реклама</div>
-                    </div>
-                  </div>
-
-                  <div className="mt-6 grid gap-3 text-sm text-white/75">
-                    <div className="flex items-center gap-2">
-                      <Clock3 className="h-4 w-4 text-[#ffcf4a]" />
-                      Швидка відповідь у робочий час
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <BadgeCheck className="h-4 w-4 text-[#ffcf4a]" />
-                      Макет і друк під ключ
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Sparkles className="h-4 w-4 text-[#ffcf4a]" />
-                      Сучасний стиль для Instagram та бізнесу
-                    </div>
-                  </div>
-
-                  <Button className="mt-6 h-12 w-full rounded-full bg-white text-black hover:bg-white/90">
-                    Замовити консультацію
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <footer className="border-t border-white/10 px-5 py-6 text-center text-sm text-white/45 md:px-8">
-        © 2026 Materiya Print — Дизайн, який працює на ваш бізнес
-      </footer>
+        <footer style={styles.footer}>
+          © 2026 Materiya Print — Дизайн, який працює на ваш бізнес
+        </footer>
+      </div>
+    </div>
+  );
+}
+
+function ServiceCard({ icon, title, text, styles }) {
+  return (
+    <div style={styles.serviceCard}>
+      <div style={styles.serviceIcon}>{icon}</div>
+      <div style={styles.serviceTitle}>{title}</div>
+      <div style={styles.serviceText}>{text}</div>
     </div>
   );
 }
