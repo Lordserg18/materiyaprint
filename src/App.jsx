@@ -724,6 +724,180 @@ export default function MateriyaPrintLanding() {
           </div>
         </section>
 
+        <section style={{ ...styles.section, marginTop: 80 }}>
+          <div
+            style={{
+              borderRadius: 36,
+              overflow: "hidden",
+              border: "1px solid rgba(255,255,255,0.1)",
+              background:
+                "linear-gradient(135deg, rgba(255,176,0,0.14), rgba(255,79,216,0.12), rgba(49,200,255,0.12))",
+              padding: 28,
+            }}
+          >
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+                gap: 24,
+                alignItems: "center",
+              }}
+            >
+              <div>
+                <div style={styles.smallCaps}>PREMIUM PRESENTATION</div>
+                <h2
+                  style={{
+                    marginTop: 12,
+                    marginBottom: 0,
+                    fontSize: "clamp(34px,5vw,58px)",
+                    lineHeight: 0.95,
+                    fontWeight: 900,
+                    letterSpacing: "-0.04em",
+                  }}
+                >
+                  ВАШ БРЕНД
+                  <span style={styles.gradientText}> МОЖЕ ВИГЛЯДАТИ ДОРОГО</span>
+                </h2>
+
+                <p
+                  style={{
+                    marginTop: 22,
+                    color: "rgba(255,255,255,0.72)",
+                    lineHeight: 1.9,
+                    maxWidth: 620,
+                  }}
+                >
+                  Materiya Print створює візуальний стиль, який підходить для
+                  сучасного українського бізнесу: мінімалізм, чиста композиція,
+                  преміальна подача і дизайн, що добре працює в Instagram та рекламі.
+                </p>
+
+                <div style={{ marginTop: 26, display: "flex", gap: 14, flexWrap: "wrap" }}>
+                  <a href="#contact" style={styles.primaryButton}>
+                    Почати проєкт →
+                  </a>
+
+                  <a
+                    href="https://instagram.com"
+                    style={styles.secondaryButton}
+                  >
+                    Instagram
+                  </a>
+                </div>
+              </div>
+
+              <div
+                style={{
+                  display: "grid",
+                  gap: 14,
+                }}
+              >
+                <div
+                  style={{
+                    borderRadius: 28,
+                    background: "rgba(0,0,0,0.22)",
+                    border: "1px solid rgba(255,255,255,0.08)",
+                    padding: 18,
+                  }}
+                >
+                  <div style={{ color: "rgba(255,255,255,0.5)", fontSize: 13 }}>
+                    Instagram Mockup
+                  </div>
+
+                  <div
+                    style={{
+                      marginTop: 14,
+                      borderRadius: 24,
+                      overflow: "hidden",
+                      background:
+                        "linear-gradient(145deg, rgba(255,176,0,0.22), rgba(255,79,216,0.16), rgba(49,200,255,0.18))",
+                      minHeight: 240,
+                      padding: 24,
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <div
+                      style={{
+                        width: 80,
+                        padding: "8px 12px",
+                        borderRadius: 999,
+                        background: "rgba(255,255,255,0.14)",
+                        fontSize: 12,
+                        textAlign: "center",
+                      }}
+                    >
+                      DESIGN
+                    </div>
+
+                    <div>
+                      <div
+                        style={{
+                          fontSize: 38,
+                          lineHeight: 0.96,
+                          fontWeight: 900,
+                          letterSpacing: "-0.04em",
+                        }}
+                      >
+                        MATERIYA
+                        <br />
+                        PRINT
+                      </div>
+
+                      <div
+                        style={{
+                          marginTop: 14,
+                          color: "rgba(255,255,255,0.84)",
+                          lineHeight: 1.7,
+                        }}
+                      >
+                        Design + Print for modern business
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "1fr 1fr",
+                    gap: 14,
+                  }}
+                >
+                  <div
+                    style={{
+                      borderRadius: 24,
+                      background: "rgba(255,255,255,0.05)",
+                      border: "1px solid rgba(255,255,255,0.08)",
+                      padding: 18,
+                    }}
+                  >
+                    <div style={{ fontSize: 30, fontWeight: 900 }}>24h</div>
+                    <div style={{ marginTop: 8, color: "rgba(255,255,255,0.58)", lineHeight: 1.7 }}>
+                      Швидка відповідь і старт роботи
+                    </div>
+                  </div>
+
+                  <div
+                    style={{
+                      borderRadius: 24,
+                      background: "rgba(255,255,255,0.05)",
+                      border: "1px solid rgba(255,255,255,0.08)",
+                      padding: 18,
+                    }}
+                  >
+                    <div style={{ fontSize: 30, fontWeight: 900 }}>100%</div>
+                    <div style={{ marginTop: 8, color: "rgba(255,255,255,0.58)", lineHeight: 1.7 }}>
+                      Адаптація під ваш бренд
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <footer style={styles.footer}>
           © 2026 Materiya Print — Дизайн, який працює на ваш бізнес
         </footer>
