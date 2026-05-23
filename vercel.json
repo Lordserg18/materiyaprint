@@ -1,3 +1,3 @@
-"scripts": {
-  "build": "vite build"
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json"
 }
